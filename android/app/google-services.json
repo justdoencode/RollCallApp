@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "811266136780",
+    "project_id": "rollcall-4d9df",
+    "storage_bucket": "rollcall-4d9df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811266136780:android:b010cccd2c58d538e38069",
+        "android_client_info": {
+          "package_name": "com.yoklama"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg2iwDTn8V9_-gV_UEVK8T_QvxMekra9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
