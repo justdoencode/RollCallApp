@@ -9,6 +9,7 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderRadius:20,
         padding:5,
+        marginTop:10,
     },
     list_conteiner:{
         flex:1,
@@ -17,6 +18,9 @@ export default StyleSheet.create({
         borderRadius:20,
         padding:10,
         marginBottom:10,
-    
+    },
+    rollcalls_button_conteiner:{
+        width:200,
+        alignSelf:"center",
     }
 })

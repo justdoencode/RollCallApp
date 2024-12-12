@@ -15,7 +15,7 @@ import { showMessage } from "react-native-flash-message";
 
 
 
-const SeniorRollCallPage = () => {
+const SeniorRollCallPage = ({navigation}) => {
     const [selected, setSelected] = useState(" ");
     const [studentList, setStudentList] = useState([]);
     const [rollCallList, setRollCallList] = useState([])
@@ -24,12 +24,12 @@ const SeniorRollCallPage = () => {
 
     function FetchData() {
         database().ref("students/")
-        .orderByChild("category").equalTo("Büyükler").on("value", snapshot => {
-            if(snapshot.val()){
-                const parsedData = parseData(snapshot.val())
-            setStudentList(parsedData)
-            }
-        })
+            .orderByChild("category").equalTo("Büyükler").on("value", snapshot => {
+                if (snapshot.val()) {
+                    const parsedData = parseData(snapshot.val())
+                    setStudentList(parsedData)
+                }
+            })
     }
 
     //İlk Render da Çalışır
@@ -72,7 +72,7 @@ const SeniorRollCallPage = () => {
 
     //Kaydet Butonu Tetikler. Verileri kaydeder
     function handleSave() {
-        database().ref(`/rollcall/${selected}/`).set(rollCallList);
+        database().ref(`/rollcall/senior/${selected}`).set(rollCallList);
         showMessage({
             message: "Yoklama Kaydedildi",
             type: "success"
@@ -106,6 +106,11 @@ const SeniorRollCallPage = () => {
     LocaleConfig.defaultLocale = 'tr';
     return (
         <View style={styles.conteiner}>
+            
+            <View style={styles.rollcalls_button_conteiner}>
+                <Button title="Yoklamalar" onPress={() => navigation.navigate("SeniorAllRollCallPage")} />
+            </View>
+
             <View>
                 <Calendar
                     style={styles.calendar}

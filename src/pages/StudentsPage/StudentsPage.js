@@ -35,7 +35,6 @@ const StudentsPage = ({ navigation }) => {
     const [studentList, setStudentList] = useState([]);
 
     useEffect(() => {
-
         database().ref("students/").on("value", snapshot => {
             if (snapshot.val()) {
                 const parsedData = parseData(snapshot.val())
@@ -143,7 +142,7 @@ const StudentsPage = ({ navigation }) => {
                             />
 
 
-                            <Button title={"KAYDET"} onPress={handleSubmit} />
+                            <Button title={"EKLE"} onPress={handleSubmit} />
                         </>
 
                     )}

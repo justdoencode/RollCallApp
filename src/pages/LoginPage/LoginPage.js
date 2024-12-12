@@ -32,6 +32,7 @@ const LoginPage = ({ navigation }) => {
            navigation.navigate("Home")
            
         } catch (error) {
+            console.log(error)
             showMessage({
                 message:"Giriş Yapılamadı",
                 type:"danger"

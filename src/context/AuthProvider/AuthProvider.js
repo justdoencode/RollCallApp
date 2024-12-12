@@ -12,14 +12,12 @@ const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        console.log("Provider Use Effect")
         AsyncStorage.getItem("@USER").then(userSession => {
             userSession && setUser(JSON.parse(userSession))
             setIsLoading(false)
         })
     }, [])
     if (!isLoading) {
-        console.log("Provider değer " + formValues)
         const store = createStore(reducers, { formValues, isLoading })
         return <Provider store={store}>{children}</Provider>
     }

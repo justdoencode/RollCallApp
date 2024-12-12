@@ -15,8 +15,8 @@ import { showMessage } from "react-native-flash-message";
 
 
 
-const JuniorRollCallPage = () => {
-    const [selected, setSelected] = useState(" ");
+const JuniorRollCallPage = ({ navigation }) => {
+    const [selectedDate, setSelectedDate] = useState(" ");
     const [studentList, setStudentList] = useState([]);
     const [rollCallList, setRollCallList] = useState([])
     const [trigger, setTrigger] = useState(false)
@@ -58,7 +58,7 @@ const JuniorRollCallPage = () => {
     //Takvimden tarih seçildiğinde o tarihte veri var ise verileri getirir.
     const handleGetStudentWithDate = (day) => {
         setTrigger(prev => !prev)
-        database().ref(`/rollcall/${day.dateString}`).
+        database().ref(`/rollcall/junior/${day.dateString}`).
             on("value", snapshot => {
                 const data = snapshot.val();
                 if (!!data) {
@@ -72,7 +72,7 @@ const JuniorRollCallPage = () => {
 
     //Kaydet Butonu Tetikler. Verileri kaydeder
     function handleSave() {
-        database().ref(`/rollcall/${selected}/`).set(rollCallList);
+        database().ref(`/rollcall/junior/${selectedDate}`).set(rollCallList);
         showMessage({
             message: "Yoklama Kaydedildi",
             type: "success"
@@ -106,19 +106,22 @@ const JuniorRollCallPage = () => {
     LocaleConfig.defaultLocale = 'tr';
     return (
         <View style={styles.conteiner}>
+            <View style={styles.rollcalls_button_conteiner}>
+                <Button title="Yoklamalar" onPress={() => navigation.navigate("JuniorAllRollCallPage")} />
+            </View>
+
             <View>
                 <Calendar
                     style={styles.calendar}
                     firstDay={1}
                     current={today}
                     onDayPress={day => {
-                        setSelected(day.dateString);
-
+                        setSelectedDate(day.dateString);
                         handleGetStudentWithDate(day)
                     }}
 
                     markedDates={{
-                        [selected]: { selected: true, disableTouchEvent: true, selectedDotColor: 'orange' }
+                        [selectedDate]: { selected: true, disableTouchEvent: true, selectedDotColor: 'orange' }
                     }}
 
                 />

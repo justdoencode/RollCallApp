@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
+const windowDimensions=Dimensions.get("window")
 export default StyleSheet.create({
     conteiner:{
         flex:1,
@@ -11,18 +12,29 @@ export default StyleSheet.create({
         height:200,
         width:200,
         alignSelf:"center",
-        marginBottom:50,
+        marginBottom:30,
     },
     exit_button:{
-        backgroundColor:"red",
-        width:150,
-        padding:20,
-        marginBottom:50,
+        backgroundColor:"white",
+        width:100,
+        padding:5,
         borderRadius:10,
+        borderColor:"red",
+        borderWidth:2,
     },
     exit_button_title:{
-        color:"white",
         textAlign:"center",
+        fontWeight:"bold",
+        fontSize:20,
+        color:"red",
+    },
+    line:{
+        height:3,
+        width:windowDimensions.width,
+        alignSelf:"center",
+        backgroundColor:"white",
+        marginBottom:30,
+        marginTop:70,
     },
     inner_conteiner:{
         flexDirection:"row",
@@ -35,7 +47,8 @@ export default StyleSheet.create({
         borderTopRightRadius:20,
         alignItems:"center",
         justifyContent:"center",
-        borderWidth:2,
+        borderWidth:1,
+        borderColor:"grey",
         backgroundColor:"#FEFEFE"
     },
     students_button_image:{
@@ -54,7 +67,8 @@ export default StyleSheet.create({
         borderBottomLeftRadius:20,
         alignItems:"center",
         justifyContent:"center",
-        borderWidth:2,
+        borderWidth:1,
+        borderColor:"grey",
         backgroundColor:"#FEFEFE"
     },
     rollcall_button_image:{
@@ -67,7 +81,8 @@ export default StyleSheet.create({
         borderBottomRightRadius:20,
         alignItems:"center",
         justifyContent:"center",
-        borderWidth:2,
+        borderWidth:1,
+        borderColor:"grey",
         backgroundColor:"#FEFEFE"
     }
 })

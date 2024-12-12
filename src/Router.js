@@ -8,9 +8,13 @@ import FlashMessage from "react-native-flash-message";
 
 import StudentsPage from "./pages/StudentsPage/StudentsPage";
 import SeniorRollCallPage from "./pages/RollCallPage/SeniorsRollCall/SeniorRollCallPage"
+import SeniorAllRollCallPage from "./pages/RollCallPage/SeniorsRollCall/SeniorAllRollCall/SeniorAllRollCall";
 import LoginPage from "./pages/LoginPage/LoginPage"
 import JuniorRollCallPage from "./pages/RollCallPage/JuniorRollCall/JuniorRollCallPage";
+import JuniorAllRollCallPage from "./pages/RollCallPage/JuniorRollCall/JuniorAllRollCallPage/JuniorAllRollCallPage";
 import HomePage from "./pages/HomePage/HomePage";
+
+
 
 import { useSelector } from "react-redux";
 
@@ -40,21 +44,35 @@ const Router = () => {
                 }} />
 
                 <Stack.Screen name="StudentsPage" component={StudentsPage} options={{
-                    title: "Öğrenci Ekle",
+                    title: "ÖĞRENCİLER",
                     headerStyle: { backgroundColor: "#F26B0F" },
                     headerTitleAlign: "center"
                 }} />
 
                 <Stack.Screen name="SeniorRollCallPage" component={SeniorRollCallPage}
                     options={{
-                        title: "Büyükler",
+                        title: "BÜYÜKLER",
+                        headerStyle: { backgroundColor: "#F26B0F" },
+                        headerTitleAlign: "center"
+                    }} />
+
+                <Stack.Screen name="SeniorAllRollCallPage" component={SeniorAllRollCallPage}
+                    options={{
+                        title: "YOKLAMALAR",
                         headerStyle: { backgroundColor: "#F26B0F" },
                         headerTitleAlign: "center"
                     }} />
 
                 <Stack.Screen name="JuniorRollCallPage" component={JuniorRollCallPage}
                     options={{
-                        title: "Küçükler",
+                        title: "KÜÇÜKLER",
+                        headerStyle: { backgroundColor: "#F26B0F" },
+                        headerTitleAlign: "center"
+                    }} />
+
+                <Stack.Screen name="JuniorAllRollCallPage" component={JuniorAllRollCallPage}
+                    options={{
+                        title: "YOKLAMALAR",
                         headerStyle: { backgroundColor: "#F26B0F" },
                         headerTitleAlign: "center"
                     }} />
